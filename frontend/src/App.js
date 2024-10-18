@@ -1,0 +1,13 @@
+import React from 'react';
+import ChatRoom from './components/ChatRoom/ChatRoom';
+
+const App = () => {
+  return (
+    <div>
+      <h1>Shadow Stars</h1>
+      <ChatRoom />
+    </div>
+  );
+};
+
+export default App;
