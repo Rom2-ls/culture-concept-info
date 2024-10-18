@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class ChatService {
-  async askAI(): Promise<Message> {
+  async askAI(chatInput): Promise<Message> {
     const anthropic = new Anthropic({
       apiKey: process.env.ANTHROPIC_API_KEY,
     });
@@ -20,7 +20,7 @@ export class ChatService {
           content: [
             {
               type: 'text',
-              text: 'Why is the ocean salty?',
+              text: chatInput,
             },
           ],
         },
