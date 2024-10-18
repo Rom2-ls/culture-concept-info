@@ -2,18 +2,18 @@ ARG NODE_VERSION=20.10.0
 
 FROM node:${NODE_VERSION}-alpine
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY package.json .
+COPY package.json pnpm-lock.yaml ./
 
-RUN npm cache clean --force
+RUN npm install -g pnpm
 
-RUN npm install
+RUN pnpm install
 
 COPY . .
 
-RUN npm run build
+RUN pnpm build
 
-EXPOSE 3100
+EXPOSE 4000
 
-CMD ["npm", "run", "start:dev"]
+CMD ["pnpm", "start:dev"]

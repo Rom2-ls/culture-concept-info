@@ -1,12 +1,13 @@
 services:
   backend:
-    container_name: backend
     build:
       context: .
-      dockerfile: ./Dockerfile
-    # env_file:
-    #   - .env.development.local
+      dockerfile: Dockerfile
     ports:
-      - 3100:3100
+      - '4000:4000'
     volumes:
-      - ./:/app
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      NODE_ENV: development
+    command: ['pnpm', 'start:dev']
