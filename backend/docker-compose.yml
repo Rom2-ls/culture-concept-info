@@ -1,0 +1,12 @@
+services:
+  backend:
+    container_name: backend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    # env_file:
+    #   - .env.development.local
+    ports:
+      - 3100:3100
+    volumes:
+      - ./:/app
